@@ -2,6 +2,8 @@ import { MantineProvider, MantineThemeOverride } from "@mantine/core";
 
 export const theme: MantineThemeOverride = {
   colorScheme: "dark",
+  fontFamily: "Open Sans",
+  fontSizes: { md: 50 }
 };
 
 interface ThemeProviderProps {
