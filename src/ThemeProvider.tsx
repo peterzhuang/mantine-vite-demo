@@ -1,4 +1,6 @@
-import { MantineProvider, MantineThemeOverride } from "@mantine/core";
+import { ColorScheme, ColorSchemeProvider, MantineProvider, MantineThemeOverride } from "@mantine/core";
+import { useHotkeys, useLocalStorage } from '@mantine/hooks';
+import { useState } from "react";
 
 export const theme: MantineThemeOverride = {
   colorScheme: "dark",
@@ -16,6 +18,13 @@ export const theme: MantineThemeOverride = {
           backgroundColor: theme.colors['ocean-blue'][9]
         }
       })
+    },
+    Grid: {
+      styles: () => ({
+        root: {
+          textAlign: 'center'
+        }
+      })
     }
   },
   loader: 'oval'
@@ -26,9 +35,26 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
+  // const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  // const toggleColorScheme = (value?: ColorScheme) =>
+  //   setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+    getInitialValueInEffect: true,
+  });
+
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
+  useHotkeys([['mod+J', () => toggleColorScheme()]]);
+
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      {children}
-    </MantineProvider>
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={{...theme, colorScheme}}>
+        {children}
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
 }
