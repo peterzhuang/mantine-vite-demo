@@ -1,4 +1,5 @@
 import { Text, Button, Stack, Paper, Loader, MantineProvider } from "@mantine/core";
+import Buttons from "./Components/Buttons";
 import Cards from "./Components/Cards";
 import LightAndDarkModeButton from "./Components/LightDarkButton";
 import { ThemeProvider } from "./ThemeProvider";
@@ -19,6 +20,7 @@ export default function App() {
           </MantineProvider>
           <Cards />
           <LightAndDarkModeButton />
+          <Buttons />
         </Stack>
       </Paper>
     </ThemeProvider>
