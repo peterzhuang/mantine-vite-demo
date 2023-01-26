@@ -2,6 +2,7 @@ import { Text, Button, Stack, Paper, Loader, MantineProvider } from "@mantine/co
 import AppShellExample from "./Components/AppShell";
 import Buttons from "./Components/Buttons";
 import Cards from "./Components/Cards";
+import ChipsExample from "./Components/ChipsExample";
 import LightAndDarkModeButton from "./Components/LightDarkButton";
 import TableExample from "./Components/TableExample";
 import { ThemeProvider } from "./ThemeProvider";
@@ -26,6 +27,7 @@ export default function App() {
           <Buttons />
         </Stack>
         <TableExample />
+        <ChipsExample />
         </AppShellExample>
       </Paper>
     </ThemeProvider>
