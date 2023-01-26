@@ -6,6 +6,7 @@ import ChipsExample from "./Components/ChipsExample";
 import InputExample from "./Components/InputExample";
 import LightAndDarkModeButton from "./Components/LightDarkButton";
 import TableExample from "./Components/TableExample";
+import TitleAndTextExample from "./Components/TextAndTitleExample";
 import { ThemeProvider } from "./ThemeProvider";
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
         <TableExample />
         <ChipsExample />
         <InputExample />
+        <TitleAndTextExample />
         </AppShellExample>
       </Paper>
     </ThemeProvider>
