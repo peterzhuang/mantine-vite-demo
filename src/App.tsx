@@ -3,6 +3,7 @@ import AppShellExample from "./Components/AppShell";
 import Buttons from "./Components/Buttons";
 import Cards from "./Components/Cards";
 import ChipsExample from "./Components/ChipsExample";
+import InputExample from "./Components/InputExample";
 import LightAndDarkModeButton from "./Components/LightDarkButton";
 import TableExample from "./Components/TableExample";
 import { ThemeProvider } from "./ThemeProvider";
@@ -28,6 +29,7 @@ export default function App() {
         </Stack>
         <TableExample />
         <ChipsExample />
+        <InputExample />
         </AppShellExample>
       </Paper>
     </ThemeProvider>
